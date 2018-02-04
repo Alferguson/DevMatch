@@ -1,6 +1,5 @@
 import smartsheet 
 import logging 
-import MatchingAlgorithm
 
 #Initialize Client
 access_token = "voaya5lwe6gzccnw2ebc64rzif"
@@ -19,10 +18,10 @@ ss_client.Sheets.get_sheet_as_csv(6072805927217028,"/Users/shockedbunny/Projects
 ss_client.Sheets.get_sheet_as_csv(5351320140965764,"/Users/shockedbunny/Projects/Hackathon/DevMatch/DataManipulation/tester")
 
 # Extracting Data From Data Base for Matching
-DataBase_ID = 3585229588850564
+
 
 # Matching Algorithm 
-MatchingAlgorithm.SubmitDatabase(DataBase_ID)
+
 
 #Creating New Sheet With Results
 sheet_spec = ss_client.models.Sheet({
@@ -30,6 +29,8 @@ sheet_spec = ss_client.models.Sheet({
   'columns': [{
       'title': 'Name',
       'type': 'TEXT_NUMBER',
+#     'type': 'CHECKBOX',
+#     'symbol': 'STAR'
     }, {
       'title': 'GROUP NUMBER',
       'primary': True,
@@ -46,5 +47,3 @@ print "Sheet Id for Manipulation: " + str(an.data.id)
 print "/////////////"
 print "Server Response: " + str(an.request_response)
 
-
-MatchingAlgoritm.Upload(SheetID_to_share)

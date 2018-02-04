@@ -4,12 +4,13 @@ import logging
 
 # TODO: Set your API access token here, or leave as None and set as environment variable "SMARTSHEET_ACCESS_TOKEN"
 access_token = "voaya5lwe6gzccnw2ebc64rzif" 
+
 access_token = "nioc9o1toi4mimk9b5mvskkivz" 
 
 # TODO: Update this with the ID of your sheet to update
 sheet_id = "3585229588850564" 
 #sheet_id = "2148786366637956" 
-#sheet_id = "8271554304862084" 
+#sheet_id = "827155430486208" 
 
 # The API identifies columns by Id, but it's more convenient to refer to column names. Store a map here
 column_map = {}
@@ -26,10 +27,10 @@ def get_cell_by_column_name(row, column_ame):
 # Return a new Row with updated cell values, else None to leave unchanged
 def evaluate_row_and_build_updates(source_row):
     # Find the cell and value we want to evaluate
-    status_cell = get_cell_by_column_name(source_row, "Status")
+    status_cell = get_cell_by_column_name(source_row, "Email")
     status_value = status_cell.display_value
     if (status_value == "Complete"):
-        remaining_cell = get_cell_by_column_name(source_row, "Remaining")
+        remaining_cell = get_cell_by_column_name(source_row, "Phone")
         if (remaining_cell.display_value != "0"):                           # Skip if already 0
             print("Need to update row #" + str(source_row.row_number))
 
